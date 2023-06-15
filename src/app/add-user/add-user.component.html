@@ -1,0 +1,24 @@
+<div id="main">
+  <form [formGroup]="addUserForm">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Enter your name" formControlName="name">
+      <mat-error *ngIf="addUserForm.get('name')?.invalid && addUserForm.get('name')?.touched">
+        Name is required.
+      </mat-error>
+    </mat-form-field>
+  <br>
+    <mat-form-field>
+      <mat-label>Place</mat-label>
+      <input matInput formControlName="place" placeholder="Enter your place" formControlName="place">
+      <mat-error *ngIf="addUserForm.get('place')?.invalid && addUserForm.get('place')?.touched">
+        Place is required.
+      </mat-error>
+    </mat-form-field>
+  <br>
+    <button *ngIf="!this.isUpdate" mat-raised-button color="primary" [disabled]="addUserForm.invalid" (click)="addUser()">Add</button>
+    <button *ngIf="this.isUpdate" mat-raised-button color="primary" [disabled]="addUserForm.invalid" (click)="updateHtml()">UPDATE</button>
+
+  </form>
+  
+</div>
